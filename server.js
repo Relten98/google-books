@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 8080;
 // Express, this is important to get this out of the way ASAP.
 const app = express();
 
+// Middleware? maybe.
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
