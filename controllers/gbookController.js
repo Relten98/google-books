@@ -43,4 +43,4 @@ db.gBooks
 .catcherror()
 }
 
-module.exports = bookcontroller
+module.exports = gbookController
