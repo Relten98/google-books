@@ -12,6 +12,6 @@ const gbookSchema = new Schema({
     
 })
 
-const gbooks = mongoose.model("gbooks", gbookSchema);
+const gBooks = mongoose.model("gBooks", gbookSchema);
 
-module.exports = gbooks;
+module.exports = gBooks;
