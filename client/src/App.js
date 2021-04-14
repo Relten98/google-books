@@ -5,8 +5,8 @@ import React, {Component} from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // React pages for the route go here
-import Homepage from "./pages/Homepage"
-import Savedpage from "./pages/Savedpage"
+import Homepage from "./pages/Search"
+import Savedpage from "./pages/Saved"
 
 // CSS Information
 import './App.css';
