@@ -22,7 +22,7 @@ if (process.env.NODE_ENV == "production") {
 app.use(routes);
 
 // MongoDB connection
-let MONGODB_URI = process.env.MONGO_URI || "mongodb://localhost/googlebks";
+let MONGODB_URI = process.env.MONGO_URI || "mongodb://localhost/googlebooks";
 
 mongoose.connect(MONGODB_URI, {
     useUnifiedTopology: true,
@@ -31,6 +31,6 @@ mongoose.connect(MONGODB_URI, {
 
 app.listen(PORT, () =>{
     console.log("Application is running at");
-    // Because Clickable links are slick as hell, and also because I forger about NODEMON
+    // Because Clickable links are slick as hell, and also because I forget about NODEMON
     console.log(`http://localhost:${PORT}/`);
 });

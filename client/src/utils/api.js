@@ -1,29 +1,33 @@
 // AXIOS TIME
-import axios from "axios";
 
+import Axios from "axios";
+
+// Prevents me from needing to export, and import common information.
 export default {
 
+    // Pulls the full list of books, based entirely on user entry.
     gbooks: function (query) {
-        return axios.get('')
+        return Axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}`)
     },
-// Pulls a single book in the search
+
+    // Pulls a single book in the search
     getBook: function () {
-        return axios.get("api/books/" + id);
+        return Axios.get("api/books/" + id);
     },
 
     // Retrieves every book in the search.
     getAllBooks: function () {
-        return axios.get("api/books/");
+        return Axios.get("api/books/");
     },
 
     // Deletes books
-    deletebook: function(id){
-        return axios.delete("api/books/" + id)
+    deletebook: function (id) {
+        return Axios.delete("api/books/" + id)
     },
 
-    // SAves books
-    saveBook: function(gbookdata){
-        return axios.post("api/books/", gbookdata)
+    // Saves books to a list. YAY
+    saveBook: function (gbookdata) {
+        return Axios.post("api/books/", gbookdata)
     }
 
-}
+};
