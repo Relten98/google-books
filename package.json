@@ -1,7 +1,6 @@
 {
   "name": "google-book-buddy",
   "version": "1.0.0",
-  "homepage": "https://relten98.github.io/google-books/",
   "description": "Google Books",
   "main": "server.js",
   "scripts": {
