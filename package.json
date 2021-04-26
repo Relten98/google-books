@@ -1,11 +1,12 @@
 {
   "name": "google-book-buddy",
+  "description": "Google Books",
   "version": "1.0.0",
+  "main": "server.js",
+
   "engines": {
     "node": "14.x"
   }
-  "description": "Google Books",
-  "main": "server.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.5",
