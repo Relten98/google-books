@@ -20,12 +20,11 @@ class Main extends Component {
                 })
             })
             // Just in case something goes wrong in the process.
-            .catch(err => console.log("Something went wrong: "err));
+            .catch(err => console.log("Something went wrong: ", err));
     };
 
     saveBook = currentBook => {
         API.saveBook({
-        - USE BOOK ARRAY -
     })
 }
 
