@@ -1,6 +1,8 @@
+// Core imports
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// The mighty SCHEMA
 const bookSchema = new Schema({
     id: {type: String, require: true},
     title: { type: String, require: true},
@@ -11,5 +13,4 @@ const bookSchema = new Schema({
 })
 
 const GoogleBooks = mongoose.model("GoogleBooks", bookSchema);
-
 module.exports = GoogleBooks;
