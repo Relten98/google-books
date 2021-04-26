@@ -10,7 +10,7 @@ function Nav() {
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark">
-                <Link id="title "className="navbar-brand" to="/">Google Book Buddy: "Find your new obsession"</Link>
+                <Link id="title "className="navbar-brand" to="/"> Book Buddy: powered by Google!</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

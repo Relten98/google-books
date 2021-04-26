@@ -8,6 +8,13 @@
 }
 
 .myText {
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-weight: bold;
+    position: relative;
+    transform: translateY(100px)
+}
+.myTextheader {
     font-family: 'Carter One', cursive;
     color: black;
     font-weight: bold;
