@@ -1,6 +1,7 @@
 {
   "name": "google-book-buddy",
   "version": "1.0.0",
+  "homepage": "https://relten98.github.io/google-books/",
   "description": "Google Books",
   "main": "server.js",
   "scripts": {
@@ -11,6 +12,7 @@
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
+    
   },
   "author": "RELTEN",
   "license": "ISC",
