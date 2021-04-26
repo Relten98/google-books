@@ -4,7 +4,10 @@
   "description": "Google Books",
   "main": "server.js",
   "scripts": {
-    "start": "npm start"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "author": "RELTEN",
   "license": "ISC",
