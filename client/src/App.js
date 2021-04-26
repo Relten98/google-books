@@ -1,11 +1,16 @@
+// CORE REACT
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./pages/Home";
-import Saved from "./pages/Saved";
+
+// CSS
 import "./App.css";
 
+// Pages
+import Home from "./pages/Home";
+import Saved from "./pages/Saved";
 
 
+// The thing that makes the react react
 class App extends Component {
 
 
