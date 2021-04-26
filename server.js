@@ -1,36 +1,31 @@
-// Import our dependancies
 const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 
-// Port information
-const PORT = process.env.PORT || 8080;
-
-// Express, this is important to get this out of the way ASAP.
 const app = express();
+const PORT = process.env.PORT || 3001;
 
-// Middleware? maybe.
-app.use(express.urlencoded({extended: true}));
+
+// Define middleware here
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-// serves static on heroku
-if (process.env.NODE_ENV == "production") {
-    app.use(express.static("client/build"));
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
 }
 
-// API route
+// Define API routes here
 app.use(routes);
 
-// MongoDB connection
-let MONGODB_URI = process.env.MONGO_URI || "mongodb://localhost/googlebooks";
+// Connect to the Mongo DB
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/googlebooks";
 
 mongoose.connect(MONGODB_URI, {
-    useUnifiedTopology: true,
-    useNewUrlParser: true
+  useUnifiedTopology: true,
+  useNewUrlParser: true
 });
 
-app.listen(PORT, () =>{
-    console.log("Application is running at");
-    // Because Clickable links are slick as hell, and also because I forget about NODEMON
-    console.log(`http://localhost:${PORT}/`);
+app.listen(PORT, () => {
+  console.log(`API server on port ${PORT}!`);
 });
+  

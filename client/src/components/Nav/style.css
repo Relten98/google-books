@@ -1,0 +1,12 @@
+.navbar {
+    background-color: #922e2e;
+    margin-bottom: 10px;
+}
+
+#title {
+    font-family: 'Carter One', cursive;
+}
+#links {
+    align-self: center;
+    float: right;
+}

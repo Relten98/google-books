@@ -1,18 +1,13 @@
-// The router for our information
-const express = require("express");
+const path = require("path");
+const router = require("express").Router();
+const apiRoutes = require("./api");
 
-let router = express.Router();
+// API Routes
+router.use("/api", apiRoutes);
 
-// API stuff
-const api = require("./api");
-router.use("/api", api);
-
-// const PATH = require("path");
-
-// This is a default incase there are not API routes available.
-router.use(function(req, res){
-  console.log("Well shit, something went horribly wrong there.")
-    // res.sendfile(PATH.join(__dirname, "../client/build/index.html"));
-})
+// If no API routes are hit, send the React app
+router.use(function(req, res) {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 
 module.exports = router;

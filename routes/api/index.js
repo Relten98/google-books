@@ -1,9 +1,7 @@
-const express = require("express");
-const router = express.Router();
+const router = require("express").Router();
+const bookRoutes = require("./books");
 
-// Solely for the google books api. and my sanity when I am needing to troubleshoot later on.
-const gbookRoutes = require("./books")
-router.use("/books", gbookRoutes);
+// Book routes
+router.use("/books", bookRoutes);
 
-// yet another export to router, are you feeling it now, mister krabs?
-module.exports = router
+module.exports = router;

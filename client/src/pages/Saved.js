@@ -1,15 +1,14 @@
-// The important core imports to get our up functioning.
-import React, { Component } from "react";
-import API from "../utils/api";
-
-// React page elements
-import { container } from "../components/container"
-import Saveddata from "../components/Saveddata";
+import React, { Component } from 'react'
+import { Container } from "../components/Grid/Grid";
+import Nav from "../components/Nav/Nav";
+import Jumbotron from "../components/Jumbotron/Jumbotron";
+import API from '../utils/API';
+import SavedList from "../components/SavedList/SavedList";
 
 class Saved extends Component {
 
     state = {
-        savedbooks: []
+        savedBooks: []
     }
 
     componentDidMount = () => {
@@ -17,33 +16,49 @@ class Saved extends Component {
     }
 
     deleteGoogleBook = currentBook => {
-        API.deletebook(currentBook.id)
-            .then(res => {
-                console.log("Book yeeted from list")
-                this.getBooks()
-            })
-            .catch(err => {
-                console.log("SOMETHING WENT WRONG HERE, MAMAMIAAAAA", err);
-            })
+        API.deleteBook( currentBook.id )
+        .then(res => {
+            console.log("You deleted this book:", res);
+            this.getBooks();
+        })
+        .catch(err => {
+            console.log("This is the error", err);
+        })
     }
 
     getBooks = () => {
         API.getBooks()
-            .then(res => {
-                this.setState({
-                    savedbooks: res
-                })
-                console.log("book results:", res);
+        .then(res => {
+            this.setState({
+                savedBooks: res.data
             })
-            .catch(err => {
-                console.log("error:", err)
-            })
+            console.log("This is the res from getBooks", res);
+        })
+        .catch(err => {
+            console.log("This is the error", err);
+        })
     }
+
+
     render() {
         return (
             <div>
-                -TO DO-
+                <Nav />
+                <Container fluid>
+                <Jumbotron />
+                {this.state.savedBooks.length ? (
+                    <SavedList 
+                    bookState={this.state.savedBooks}
+                    deleteGoogleBook={this.deleteGoogleBook}
+                    >
+                    </SavedList>
+                ) : (
+                    <h5>No results to display</h5>
+                )}
+                </Container>
             </div>
         )
     }
 }
+
+export default Saved

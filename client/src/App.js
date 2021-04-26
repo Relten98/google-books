@@ -1,27 +1,26 @@
-// basic import for react to do.... react things
-import React, {Component} from "react";
-
-// This is what is going to let our page do the magic
+import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./pages/Home";
+import Saved from "./pages/Saved";
+import "./App.css";
 
-// React pages for the route go here
-import Homepage from "./pages/Search"
-import Savedpage from "./pages/Saved"
 
-// CSS Information
-import './App.css';
 
-function App() {
-  return (
-<Router>
-  <div>
-    <Switch>
-      <Route exact path="/" component={Homepage} />
-      <Route exact path="/savedpage" component={Savedpage} />
-    </Switch>
-  </div>
-</Router>
-  );
+class App extends Component {
+
+
+  render() {
+    return (
+      <Router>
+      <div>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/saved" component={Saved} />
+        </Switch>
+      </div>
+      </Router>
+    );
+  }
 }
 
 export default App;
