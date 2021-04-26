@@ -1,16 +1,25 @@
+// Core REACT
 import React, { Component } from 'react'
+
+// Components
 import { Container } from "../components/Grid/Grid";
+
+// THE ACTUAL COMPONENTS
 import Nav from "../components/Nav/Nav";
 import Jumbotron from "../components/Jumbotron/Jumbotron";
-import API from '../utils/API';
 import SavedList from "../components/SavedList/SavedList";
 
+// API
+import API from '../utils/API';
+
+// Our important information
 class Saved extends Component {
 
     state = {
         savedBooks: []
     }
-
+    
+// Checks it it mounted.
     componentDidMount = () => {
         this.getBooks()
     }

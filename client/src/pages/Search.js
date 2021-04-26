@@ -19,26 +19,27 @@ class Main extends Component {
                     search: ""
                 })
             })
-            // Just in case something goes wrong in the process.
+            // All to prevent a potential page nuke
             .catch(err => console.log("Something went wrong: ", err));
     };
 
+    // This is for the forms, along with preventing page default.
+    Inputchange = event => {
+        let { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+    }
+
+    // Just saves the book. WHOOPDEEDOOO
     saveBook = currentBook => {
-        API.saveBook({
-    })
-}
+        API.saveBook({})
+    }
 
-// This is for the forms, along with preventing page default.
-Inputchange = event => {
-    let { name, value } = event.target;
-    this.setState({
-        [name]: value
-    });
-}
-
-submitForm = event => {
-    event.preventDefault();
-    this.searchBooks();
-}
+    // Important for handling form submissions
+    submitForm = event => {
+        event.preventDefault();
+        this.searchBooks();
+    }
 
 }
