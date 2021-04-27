@@ -1,7 +1,11 @@
 const express = require("express");
-// const path = require("path");
+
+// Port information
 const PORT = process.env.PORT || 3001;
+
+// Express
 const app = express();
+
 const mongoose = require("mongoose");
 const routes = require("./routes");
 
