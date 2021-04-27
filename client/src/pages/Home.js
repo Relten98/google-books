@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 
 // API
-import API from "../utils/API";
+import API from "../utils/API.js";
 
 // Components
 import ResultList from "../components/ResultList/ResultList";
