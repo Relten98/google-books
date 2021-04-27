@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 
 // API
-import API from "../utils/api";
+import API from "../utils/api.js";
 
 class Main extends Component {
 

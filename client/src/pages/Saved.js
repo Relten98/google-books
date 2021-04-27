@@ -10,7 +10,7 @@ import Jumbotron from "../components/Jumbotron/Jumbotron";
 import SavedList from "../components/SavedList/SavedList";
 
 // API
-import API from '../utils/API';
+import API from "../utils/api.js";
 
 // Our important information
 class Saved extends Component {
