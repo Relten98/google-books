@@ -1,11 +1,13 @@
-## google-books
-Logs books with the power of REACT
+# GoogleBooksSearch
+https://as-book-search.herokuapp.com/
 
-## CREATED BY:
-Relten!
+## Overviews
+1. New React-based Google Books Search app. 
+2. React components, work with helper/util functions, and utilize React lifecycle methods to query and display books based on user searches. 
+3. Users can save books to review or purchase later.
 
-## Usage
-Simply open the application through the provided link. (...)
-and then search for a book in the search bar. If you see a book you like, simply click save to save it.
-This application isn't all that complex, and should hopefully be simple enough to get the hang of.
+## Technolohy
+> React, Node.js, Github, Heroku, npm packages(MongoDB, mongoose, axios, express), html, javascript, Jquery, Bootstrap, Bootswatch.
 
+## Screenshot
+![googleBooksSearch](https://user-images.githubusercontent.com/44251380/55913098-cee58c80-5bb1-11e9-985e-a2fe0380d833.jpg)

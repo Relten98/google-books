@@ -3,12 +3,10 @@ const booksController = require("../../controllers/booksController");
 
 // Matches with "/api/books"
 router.route("/")
-  .get(booksController.findAll)
-  .post(booksController.save);
+.get(booksController.findAll)
+.post(booksController.create);
 
-// Matches with "/api/books/:id"
 router.route("/:id")
-  .get(booksController.findOne)
-  .delete(booksController.remove);
+.delete(booksController.delete);
 
 module.exports = router;

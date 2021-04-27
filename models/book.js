@@ -1,16 +1,14 @@
-// Core imports
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// The mighty SCHEMA
 const bookSchema = new Schema({
-    id: {type: String, require: true},
-    title: { type: String, require: true},
-    authors: [{ type: String, require: true}],
-    description: { type: String, require: true},
-    image: { type: String, unique: true, dropDups: true},
-    link: { type: String, required: true}
-})
+    title : String,
+    authors : [String],
+    description : String,
+    image : String,
+    link : String
+});
 
-const GoogleBooks = mongoose.model("GoogleBooks", bookSchema);
-module.exports = GoogleBooks;
+const Book = mongoose.model("Book", bookSchema);
+
+module.exports = Book;
