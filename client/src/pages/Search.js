@@ -1,106 +1,45 @@
-import React, { Component} from "react";
-import { Col, Row, Container } from "../components/Grid";
-import Jumbotron from "../components/Jumbotron";
-// import { Input, Btn } from "../components/Form"
-import API from "../utils/API"
-import Card from "../components/Card";
-import SearchForm from "../components/SearchForm";
-import BookDetail from "../components/BookDetail";
+// Important base imports
+import React, { Component } from "react";
 
+// API
+import API from "../utils/api";
 
-class Search extends Component {
+class Main extends Component {
+
     state = {
-        books : [],
-        // authors: [],
-        // description : "",
-        // image : "",
-        // link : "",
-        title: ""
+        books: [],
+        search: ""
     };
 
-    handleInputChange = (event) => {
-        event.preventDefault();
-        const { name, value } = event.target;
-        this.setState({
-            [name] : value
-        })
-    }
-
-    handleFormSubmit = (event) => {
-        event.preventDefault();
-        API.searchBooks(this.state.title)
+    findBooks = () => {
+        api.googlebooks(this.state.search)
             .then(res => {
                 this.setState({
-                    books : res.data.items ,
-                    title : ""
-                });
-                
-                console.log(this.state.books);
-                
+                    books: res.data.items,
+                    search: ""
+                })
             })
-            .catch(err => console.log(err)) ;               
+            // All to prevent a potential page nuke
+            .catch(err => console.log("Something went wrong: ", err));
+    };
+
+    // This is for the forms, along with preventing page default.
+    Inputchange = event => {
+        let { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
     }
 
-    handleSave = bookData => {
-        API.saveBook(bookData)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
-
+    // Just saves the book. WHOOPDEEDOOO
+    saveBook = currentBook => {
+        API.saveBook({})
     }
 
-    render(){
-        return(
-            <Container >
-            <Row fluid>
-                <Col size="12">
-                    <Jumbotron>
-                        <h1>Google Books Search</h1>
-                        <p>Serach for and Save Books of Interest</p>
-                    </Jumbotron>
-                </Col>
-            </Row>
-            <Row fluid>
-                <Col size="12">                    
-                <Card heading="Google Books Search">
-                    <SearchForm
-                        value={this.state.title}
-                        handleInputChange={this.handleInputChange}
-                        handleFormSubmit={this.handleFormSubmit}
-                    />
-                </Card>                   
-                </Col>
-            </Row>
-            <Row fluid>
-                <Col size="md-12">
-                    {this.state.books.length ? (
-                    <Card heading="Search Results">
-                        {this.state.books.map(book => (
-                        <BookDetail
-                            key={book.id}
-                            title = {book.volumeInfo.title}
-                            authors = {book.volumeInfo.authors}
-                            image = {book.volumeInfo.imageLinks.thumbnail}
-                            description = {book.volumeInfo.description}
-                            link = {book.volumeInfo.infoLink}
-                            handleSave = {()=> this.handleSave({
-                                title: book.volumeInfo.title,
-                                authors : book.volumeInfo.authors,
-                                image : book.volumeInfo.imageLinks.thumbnail,
-                                description : book.volumeInfo.description,
-                                link : book.volumeInfo.infoLink
-                            })}
-                        />
-                        ))}
-                    </Card>
-                    ) : (
-                    <Card heading="Search Results"></Card>
-                    )}
-                </Col>
-            </Row>
-                
-        </Container>
-        );
+    // Important for handling form submissions
+    submitForm = event => {
+        event.preventDefault();
+        this.searchBooks();
     }
+
 }
-
-export default Search;

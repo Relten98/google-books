@@ -1,26 +1,31 @@
-import React from "react";
-// import logo from "./logo.svg";
-import "./App.css";
+// CORE REACT
+import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Search from "./pages/Search";
-import Saved from "./pages/Saved";
-import Nav from "./components/Nav";
-import NoMatch from "./pages/NoMatch";
 
-function App() {
-  return (
-    <Router>
+// CSS
+import "./App.css";
+
+// Pages
+import Home from "./pages/Home";
+import Saved from "./pages/Saved";
+
+
+// The thing that makes the react react
+class App extends Component {
+
+
+  render() {
+    return (
+      <Router>
       <div>
-        <Nav />
         <Switch>
-          <Route exact path="/" component={Search}/>
-          <Route exact path="/search" component={Search}/>
-          <Route exact path="/saved" component={Saved}/>
-          <Route component={NoMatch} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/saved" component={Saved} />
         </Switch>
       </div>
-    </Router>
-  );
+      </Router>
+    );
+  }
 }
 
 export default App;
